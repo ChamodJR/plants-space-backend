@@ -5,6 +5,9 @@ import User from "./models/user.js";
 import userRouter from "./router/userRouter.js";
 import productRouter from "./router/productRouter.js";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -28,7 +31,7 @@ app.use((req, res, next) => {
  
 
 
-let mongoUrl = "mongodb+srv://chamodjasintha96:plants-space@cluster0.gbe2xd7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+let mongoUrl = process.env.MONGO_URL;
 
 mongoose.connect(mongoUrl)
 
