@@ -20,7 +20,7 @@ app.use((req, res, next) => {
        token = token.replace("Bearer ", "");
  
        try {
-          const decoded = jwt.verify(token, "plants-space");
+          const decoded = jwt.verify(token, process.env.JWT_SECRET);
           req.user = decoded;
        } catch (err) {
           req.user = null;
